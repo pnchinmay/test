@@ -18,6 +18,8 @@ jobs:
 #         run: echo "$HTML_URL"
       - name: "get pullrequest"
         run: echo "${{ github.event.pull_request }}"
+      - name: "get issue number"
+        run: echo "${{ github.event.issue.number }}"
       - name: "echo upstream branch"
         run: "echo ${{ steps.upstreambranch.outputs.branchname }}\n"
       - name: Checkout Pull Request
