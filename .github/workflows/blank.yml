@@ -6,6 +6,7 @@ on:
 env:
   GITHUB_CONTEXT: "${{ toJson(github) }}"
   EVENTS: "${{ toJson(github.event) }}"
+  ISSUE_NUMBER: "${{github.event.issue.number}}"
   HTML_URL: "${{ toJson(github.event.issue.pull_request.html_url) }}"
 jobs:
   job01:
@@ -28,11 +29,11 @@ jobs:
       - name: PR Comment
         uses: actions/github-script@v2
         with:
+#             issue_number: github.event.issue.number,
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
             github.issues.createComment({
-            issue_number: github.event.issue.number,
             owner: context.repo.owner,
             repo: context.repo.repo,
-            body: 'Hello World',
+            body: 'echo $ISSUE_NUMBER Hello World',
             })
