@@ -23,6 +23,11 @@ jobs:
         run: echo "${{ github.event.comment.body }}\n"
 #       - name: html_url
 #         run: 'echo "$GITHUB_CONTEXT.event"'
+      - name: Issue Comment
+        uses: kentaro-m/add-an-issue-reference-action@v2.0.0
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          branch-prefix: "TICKET-"
       - name: PR Comment
         uses: actions/github-script@v2
         with:
