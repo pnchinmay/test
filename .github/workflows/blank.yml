@@ -11,6 +11,8 @@ jobs:
   job01:
     runs-on: ubuntu-latest
     steps:
+      - name: "json data"
+        run: echo "${{github.event}}"
 #       - name: "get pullrequest url"
 #         run: echo "$HTML_URL"
       - name: "get pullrequest"
