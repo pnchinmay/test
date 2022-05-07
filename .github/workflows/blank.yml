@@ -9,7 +9,6 @@ env:
   HTML_URL: "${{ toJson(github.event.issue.pull_request.html_url) }}"
 jobs:
   job01:
-    if: "contains(github.event.comment.html_url, '/pull/') && (contains(github.event.comment.body, 'commenttest') || contains(github.event.comment.body, 'netlify'))"
     runs-on: ubuntu-latest
     steps:
       - name: "get pullrequest url"
