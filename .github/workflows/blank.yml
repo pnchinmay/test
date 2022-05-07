@@ -11,8 +11,8 @@ jobs:
   job01:
     runs-on: ubuntu-latest
     steps:
-      - name: "get pullrequest url"
-        run: echo "$HTML_URL"
+#       - name: "get pullrequest url"
+#         run: echo "$HTML_URL"
       - name: "get pullrequest"
         run: echo "${{ github.event.pull_request }}"
       - name: "echo upstream branch"
@@ -21,8 +21,8 @@ jobs:
         run: echo "${{github.event.number}}"
       - name: "echo Comment"
         run: echo "${{ github.event.comment.body }}\n"
-      - name: html_url
-        run: 'echo "$GITHUB_CONTEXT.event"'
+#       - name: html_url
+#         run: 'echo "$GITHUB_CONTEXT.event"'
       - name: PR Comment
         uses: actions/github-script@v2
         with:
